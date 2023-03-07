@@ -1,0 +1,476 @@
+@charset "UTF-8";
+@import url('https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css');
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-2 {
+  font-size: 20px;
+}
+
+.fs-3 {
+  font-size: 30px;
+}
+
+/* Payment Method */
+label.payment-method input[type="radio"] {
+  display: none;
+}
+
+label.payment-method:hover {
+  border: 1px solid #5369f8;
+  border-radius: .3rem;
+  transition: 0.3s;
+}
+
+label.payment-method.active {
+  border: 1px solid #5369f8;
+  border-radius: .3rem;
+  transition: 0.3s;
+}
+
+label.payment-method {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #e2e7f1;
+  border-radius: .3rem;
+}
+
+label.payment-method img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 15px;
+}
+
+.form-control.mp {
+  padding: .5rem .75rem .5rem 90px;
+}
+
+.mp-bca {
+  background-image: url('../images/payment/bca.png');
+  background-repeat: no-repeat;
+  background-size: auto 15px;
+  background-position: 1.5% 50%;
+}
+
+.mp-bni {
+  background-image: url('../images/payment/bni.png');
+  background-repeat: no-repeat;
+  background-size: auto 15px;
+  background-position: 1.5% 50%;
+}
+
+.mp-bri {
+  background-image: url('../images/payment/bri.png');
+  background-repeat: no-repeat;
+  background-size: auto 15px;
+  background-position: 1.5% 50%;
+}
+
+.mp-mandiri {
+  background-image: url('../images/payment/mandiri.png');
+  background-repeat: no-repeat;
+  background-size: auto 15px;
+  background-position: 1.5% 50%;
+}
+
+.mp-gopay {
+  background-image: url('../images/payment/gopay.png');
+  background-repeat: no-repeat;
+  background-size: auto 15px;
+  background-position: 1.5% 50%;
+}
+
+.mp-dana {
+  background-image: url('../images/payment/dana.png');
+  background-repeat: no-repeat;
+  background-size: auto 18px;
+  background-position: 1.5% 50%;
+}
+
+.mp-ovo {
+  background-image: url('../images/payment/ovo.png');
+  background-repeat: no-repeat;
+  background-size: auto 31px;
+  background-position: 1% 50%;
+}
+
+/* Order */
+.kk-order tbody tr {
+  position: relative;
+  display: block;
+  padding: 10px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid rgb(0 0 0 / 10%);
+  margin-top: 10px;
+}
+
+.kk-order .kk-order-mobile {
+  display: none;
+}
+
+.kk-order tbody tr::before {
+  content: '\f105';
+  position: absolute;
+  font-family: 'Line Awesome Free';
+  font-weight: 900;
+  font-size: 15px;
+  color: #0095ff;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.kk-order tbody tr td {
+  border: none;
+  vertical-align: middle;
+}
+
+.kk-order tbody tr td:nth-child(1) {
+  width: 8%;
+  padding: 0 0 0 20px;
+}
+
+.kk-order tbody tr td:nth-child(2) {
+  width: 30%;
+  padding: 0 0 0 30px;
+}
+
+.kk-order tbody tr td:nth-child(3) {
+  width: 25%;
+}
+
+.kk-order tbody tr td:nth-child(4) {
+  width: 15%;
+  padding: 0 0 0 50px;
+}
+
+.kk-order tbody tr td:nth-child(5) {
+  width: 10%;
+  padding: 0 0 0 50px;
+}
+
+.kk-order tbody tr td a {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.kk-order tbody tr td a:hover {
+  border: 1px solid #0095ff;
+}
+
+.kk-order tbody tr td .kk-order-product-name {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 600;
+  color: #374a63;
+  margin-bottom: 2px;
+}
+
+.kk-order tbody tr td .kk-order-date-time {
+  color: #7d7d83;
+  font-size: 14px;
+}
+
+.kk-order tbody tr td .kk-order-price {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 600;
+  color: #d85360;
+}
+
+.kk-order tbody tr td .kk-order-status-warning {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #ffb129;
+  background-color: #edf2f9;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.kk-order tbody tr td .kk-order-status-info {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #0095ff;
+  background-color: #edf2f9;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.kk-order tbody tr td .kk-order-status-success {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #3dcd8b;
+  background-color: #edf2f9;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.kk-order tbody tr td .kk-order-status-danger {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #e75c62;
+  background-color: #edf2f9;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+/* Chat */
+.kk-chat-content {
+  position: relative;
+  overflow-x: hidden;
+  width: auto;
+  height: 500px;
+}
+
+.kk-chat-content::-webkit-scrollbar {
+  display: none;
+}
+
+.kk-chat-content .kk-chat-content-center {
+  margin: 20px 0;
+}
+
+.kk-chat-content .kk-chat-content-message-center {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #5369f8;
+  color: #232323;
+  max-width: 100%;
+  padding: 8px 20px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.kk-chat-content .kk-chat-content-left:first-child {
+  margin-top: 20px;
+}
+
+.kk-chat-content .kk-chat-content-left {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.kk-chat-content .kk-chat-content-message-left {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #adb5bd;
+  color: #232323;
+  max-width: 100%;
+  padding: 8px 20px;
+  margin-bottom: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.kk-chat-content .kk-chat-content-right:first-child {
+  margin-top: 20px;
+}
+
+.kk-chat-content .kk-chat-content-right:last-child {
+  margin-top: 20px;
+}
+
+.kk-chat-content .kk-chat-content-right {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.kk-chat-content .kk-chat-content-message-right {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #adb5bd;
+  color: #232323;
+  max-width: 100%;
+  padding: 8px 20px;
+  margin-bottom: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.kk-chat-content .kk-chat-content-date-time-center {
+  display: block;
+  font-size: 12px;
+}
+
+.kk-chat-content .kk-chat-content-date-time-right {
+  display: block;
+  font-size: 12px;
+}
+
+.kk-chat-content .kk-chat-content-date-time-left {
+  display: block;
+  font-size: 12px;
+}
+
+@media (max-width: 999px) {
+  .kk-order tbody tr::before {
+    display: none;
+  }
+  .kk-order tbody tr td:nth-child(3) {
+    width: 20%;
+  }
+  .kk-order tbody tr td:nth-child(4) {
+    width: 20%;
+  }
+  .kk-order tbody tr td .order-product-name, .order-topup-history-area .kk-order-with-status tbody tr td .kk-order-product-name {
+    font-size: 14px;
+  }
+  .kk-order tbody tr td .kk-order-date-time, .kk-order-with-status tbody tr td .kk-order-date-time {
+    font-size: 13px;
+  }
+  .kk-order tbody tr td .kk-order-amount, .kk-order-with-status tbody tr td .kk-order-amount {
+    font-size: 13px;
+  }
+  .kk-order tbody tr td .kk-order-price, .kk-order-with-status tbody tr td .kk-order-price {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 899px) {
+  .kk-order tbody tr td:nth-child(3) {
+    width: 15%;
+  }
+  .kk-order tbody tr td:nth-child(4) {
+    padding: 0 0 0 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kk-order .kk-order-dekstop {
+    display: none;
+  }
+  .kk-order .kk-order-mobile {
+    display: block;
+    padding: 10px 15px;
+  }
+  .kk-order .kk-order-mobile {
+    display: block;
+    padding: 10px 15px;
+  }
+  .kk-order-topup-history-area .kk-order-with-status .kk-order-mobile::before {
+    display: none;
+  }
+  .kk-order .kk-order-mobile td:nth-child(1) {
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    padding: 0;
+    left: 0;
+  }
+  .kk-order .kk-order-mobile td:nth-child(1) span {
+    border-radius: 10px 0;
+    padding: 6px 12px;
+  }
+  .kk-order .kk-order-mobile td:nth-child(2) {
+    padding: 23px 0 0;
+  }
+  .kk-order .kk-order-mobile td:nth-child(3) {
+    width: 5%;
+    padding: 0;
+    text-align: right;
+  }
+  .kk-order .kk-order-mobile td:nth-child(4) {
+    display: flex;
+    width: 100%;
+    padding: 8px 0 0 0;
+  }
+  .kk-order .kk-order-mobile td .kk-order-target {
+    font-size: 14px;
+    color: #616167;
+  }
+  .kk-order .kk-order-mobile td .kk-order-date-time {
+    width: 100%;
+    border-top: 1px solid rgb(0 0 0 / 10%);
+    padding-top: 10px;
+  }
+  .kk-order .kk-order-mobile td .kk-order-status-info {
+    position: absolute;
+    right: 15px;
+    margin-top: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  .kk-order .kk-order-mobile td .kk-order-status-warning {
+    position: absolute;
+    right: 15px;
+    margin-top: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  .kk-order .kk-order-mobile td .kk-order-status-success {
+    position: absolute;
+    right: 15px;
+    margin-top: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  .kk-order .kk-order-mobile td .kk-order-status-danger {
+    position: absolute;
+    right: 15px;
+    margin-top: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  .form-control.mp {
+    padding: .5rem .75rem .5rem 90px;
+  }
+  .mp-bca {
+    background-image: url('../images/payment/bca.png');
+    background-repeat: no-repeat;
+    background-size: auto 14px;
+    background-position: 5% 50%;
+  }
+  .mp-bni {
+    background-image: url('../images/payment/bni.png');
+    background-repeat: no-repeat;
+    background-size: auto 14px;
+    background-position: 5% 50%;
+  }
+  .mp-bri {
+    background-image: url('../images/payment/bri.png');
+    background-repeat: no-repeat;
+    background-size: auto 14px;
+    background-position: 5% 50%;
+  }
+  .mp-mandiri {
+    background-image: url('../images/payment/mandiri.png');
+    background-repeat: no-repeat;
+    background-size: auto 14px;
+    background-position: 5% 50%;
+  }
+  .mp-gopay {
+    background-image: url('../images/payment/gopay.png');
+    background-repeat: no-repeat;
+    background-size: auto 14px;
+    background-position: 5% 50%;
+  }
+  .mp-dana {
+    background-image: url('../images/payment/dana.png');
+    background-repeat: no-repeat;
+    background-size: auto 18px;
+    background-position: 5% 50%;
+  }
+  .mp-ovo {
+    background-image: url('../images/payment/ovo.png');
+    background-repeat: no-repeat;
+    background-size: auto 31px;
+    background-position: 3% 50%;
+  }
+}
