@@ -18,3 +18,5 @@ application/logs/*
 **/vendor/**
 mainconfig.php
 **/system-old/**
+.well-known
+.htaccess
