@@ -20,3 +20,14 @@ $config['db'] = [
 	'password' => '',
 	'database' => ''
 ];
+
+$config['xendit_key'] = '';
+
+$config['smtp'] = [
+	'host' => '',
+	'port' => 465,
+	'username' => '',
+	'pasword' => '',
+	'from_email' => '',
+	'from_name' => ''
+];

@@ -67,7 +67,7 @@ class Order extends MY_Controller {
 				} else if ($data_input['amount'] < 10000) {
 					$this->session->set_flashdata('result', array('alert' => 'danger', 'title' => 'Gagal!', 'msg' => 'Harga produk minimal 10.000 rupiah.'));
                 } else {
-                    Xendit::setApiKey('xnd_development_CZd5PSfVdpMDDH33zEm7qH7katat1O0hGNV3C3TJDcmPvSyQA7dDH4oMRHEGqw');
+                    Xendit::setApiKey($this->config->item('xendit_key'));
                     
                     if ($data_input['fee_by'] == 'Penjual') {
                         $fee_admin = $data_input['amount'] + $data_input['amount_unix'];
@@ -165,7 +165,7 @@ class Order extends MY_Controller {
 		}
 		$mutation = $this->mutation_model->get_row(['order_id' => $target->order_id, 'status' => 'Pending']);
 		if ($mutation == true) {
-    	    Xendit::setApiKey('xnd_development_CZd5PSfVdpMDDH33zEm7qH7katat1O0hGNV3C3TJDcmPvSyQA7dDH4oMRHEGqw');
+    	    Xendit::setApiKey($this->config->item('xendit_key'));
             $getInvoice = \Xendit\Invoice::retrieve($mutation->mutation_id);
             if ($getInvoice['status'] == 'SETTLED') {
                 $data_input = [

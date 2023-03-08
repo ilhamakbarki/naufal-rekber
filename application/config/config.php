@@ -24,6 +24,18 @@ require 'mainconfig.php';
 | a PHP script and you can easily do that on your own.
 |
 */
+
+//Xendit Key
+$config['xendit_key'] = $config['xendit_key'];
+
+//SMTP Access
+$config['smtp_host'] = $config['smtp']['host'];
+$config['smtp_port'] = $config['smtp']['port'];
+$config['smtp_username'] = $config['smtp']['username'];
+$config['smtp_password'] = $config['smtp']['password'];
+$config['smtp_from_email'] = $config['smtp']['from_email'];
+$config['smtp_from_name'] = $config['smtp']['from_name'];
+
 $config['base_url'] = $config['web']['base_url'];
 
 /*
