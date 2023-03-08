@@ -61,10 +61,6 @@
                                             			<th>NOMOR&nbsp;UNIK</th>
                                             			<th>FEE</th>
                                             			<th>TOTAL&nbsp;KESELURUHAN</th>
-                                            			<th>REKENING&nbsp;PENJUAL</th>
-                                            			<th>PAYMENT&nbsp;PENJUAL</th>
-                                            			<th>REKENING&nbsp;PEMBELI</th>
-                                            			<th>PAYMENT&nbsp;PEMBELI</th>
                                             			<th>FEE OLEH</th>
                                             			<th>STATUS</th>
                                             			<th>AKSI</th>
@@ -81,20 +77,17 @@
                             		                    <td><?= $this->lib->format_date($value['update_at']) ?>, <?= $this->lib->format_time($value['update_at']) ?></td>
                                                         <td><?= $value['seller_name'] ?></td>
                                                         <td><?= $value['buyyer_name'] ?></td>
-                                                        <td><?= $value['seller'] ?></td>
+                                                        <td><?= $value['username'] ?></td>
                                                         <td><?= $value['category_name'] ?></td>
                                                         <td><?= $value['order_name'] ?></td>
                                                         <td>Rp <?= number_format($value['amount'],0,',','.') ?></td>
                                                         <td><?= number_format($value['amount_unix'],0,',','.') ?></td>
                                                         <td>Rp <?= number_format($value['fee'],0,',','.') ?></td>
                                                         <td>Rp <?= number_format($value['grand_total'],0,',','.') ?></td>
-                                                        <td><?= $value['rekening_seller'] ?></td>
-                                                        <td><?= $value['payment_seller'] ?></td>
-                                                        <td><?= $value['rekening_buyyer'] ?></td>
-                                                        <td><?= $value['payment_buyyer'] ?></td>
                                                         <td><?= $value['fee_by'] ?></td>
                                                         <td><span class="btn btn-sm btn-<?= $this->lib->status_order($value['status']) ?>"><?= $value['status'] ?></span></td>
                                             			<td align="center">
+                                            			    <a href="javascript: void(0);" onclick="detail('<?= base_url('admin/'.$this->uri->segment(2).'/detail/'.$value['id']) ?>')" class="btn btn-info btn-sm"><i class="uil-search"></i></a>
                                             			    <a href="javascript: void(0);" onclick="edit('<?= base_url('admin/'.$this->uri->segment(2).'/edit/'.$value['id']) ?>')" class="btn btn-warning btn-sm"><i class="uil-edit"></i></a>
                                             			    <a href="javascript: void(0);" onclick="confirm_delete('<?= base_url('admin/'.$this->uri->segment(2).'/delete/'.$value['id']) ?>')" class="btn btn-danger btn-sm"><i class="uil-trash"></i></a>
                                             			</td>

@@ -12,14 +12,15 @@ class Order extends MY_Controller {
 		// END FORM INPUT //
 		// SETTINGS //
 		$data_query = [
-			'select' => 'order.*, user.username AS seller',
+			'select' => 'order.*, user.username AS user, order.rekening AS rekening_seller, order.payment AS payment_seller',
 			'join' => [
 				[
 					'table' => 'user',
-					'on' => 'user.user_id = order.seller_id',
+					'on' => 'user.user_id = order.user_id',
 					'param' => 'inner'
 				]
 			],
+			'where' => [['order_by' => 'Penjual']],
 			'order_by' => 'order.id DESC',
 			'limit' => '10',
 			'offset' => ($this->uri->segment(4)) ? $this->uri->segment(4) : 0
@@ -45,7 +46,7 @@ class Order extends MY_Controller {
 		$config['per_page'] = $data_query['limit'];
 		$this->pagination->initialize($config);
 		// END PAGINATION //
-		$this->render_admin('admin/'.$this->uri->segment(2).'/index', ['table' => $this->order_model->get_rows($data_query), 'total_data' => $config['total_rows']]);
+		$this->render_admin('admin/'.$this->uri->segment(2).'/index', ['table' => $this->order_model->get_rows($data_query), 'total_data' => $config['total_rows'], 'buyyer' => $this->order_model->get_row(['order_by' => 'Pembeli'])]);
 	}
 	public function filter() {
 	    $action = $this->input->post('action');
@@ -59,6 +60,11 @@ class Order extends MY_Controller {
     		$this->session->set_userdata('status', 'Refund');
 	    }
 		redirect(base_url('admin/'.$this->uri->segment(2)));
+	}
+	public function detail($i = '') {
+		$target = $this->order_model->get_by_id($i);
+		if ($target == false) show_404();
+		$this->load->view('admin/'.$this->uri->segment(2).'/detail', ['seller' => $this->order_model->get_row(['order_id' => $target->order_id, 'order_by' => 'Penjual']), 'buyyer' => $this->order_model->get_row(['order_id' => $target->order_id, 'order_by' => 'Pembeli'])]);
 	}
 	public function edit($i = '') {
 		$target = $this->order_model->get_by_id($i);

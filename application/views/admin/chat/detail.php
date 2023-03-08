@@ -23,6 +23,15 @@
                                             <?php } ?>
 
                                         </div>
+                                        <form method="POST">
+                                        	<input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
+                                        	<div class="mb-3">
+                                        		<label>Pesan</label>
+                                        		<textarea class="form-control" name="message" rows="3"></textarea>
+                                        	</div>
+                                        	<button type="reset" class="btn btn-danger">Ulangi</button>
+                                        	<button type="submit" class="btn btn-success">Kirim</button>
+                                        </form>
                                     </div>
                         		</div>
                         	</div>

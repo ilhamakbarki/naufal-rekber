@@ -35,6 +35,28 @@ class Chat extends MY_Controller {
 	public function detail($i = '') {
 		$target = $this->chat_status_model->get_by_id($i);
 		if ($target == false) show_404();
+		if ($this->input->post()) {
+			$this->form_validation->set_rules('message', 'Pesan', 'required');
+			if ($this->form_validation->run() == true) {
+				$data_input = [
+				    'order_id' => $target->order_id,
+				    'user_id' => '0',
+				    'sender' => 'Admin',
+				    'message' => $this->db->escape_str(strip_tags($this->input->post('message'))),
+				    'created_at' => date('Y-m-d H:i:s'),
+				    'update_at' => date('Y-m-d H:i:s'),
+				];
+				$insert_reply = $this->chat_model->insert($data_input);
+				if ($insert_reply) {
+					$this->session->set_flashdata('result', array('alert' => 'success', 'title' => 'Berhasil!', 'msg' => 'Pesan berhasil dikirim.'));
+					exit(redirect(base_url('admin/'.$this->uri->segment(2).'/detail/'.$i)));
+				} else {
+					$this->session->set_flashdata('result', array('alert' => 'danger', 'title' => 'Gagal!', 'msg' => 'Kesalahan tidak terduga.'));
+				}
+			} else {
+				$this->session->set_flashdata('result', array('alert' => 'danger', 'title' => 'Gagal!', 'msg' => ''.validation_errors()));
+			}
+		}
 		$this->render_admin('admin/'.$this->uri->segment(2).'/detail', ['target' => $target, 'chat' => $this->chat_model->get_rows(['where' => [['order_id' => $target->order_id]]])]);
 	}
 }

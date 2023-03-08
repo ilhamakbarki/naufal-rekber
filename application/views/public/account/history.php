@@ -21,7 +21,7 @@
                                                             <div class="kk-order-price">Rp <?= number_format($value['amount'],0,',','.') ?></div>
                                                         </td>
                                                         <td><div class="kk-order-status-<?= $this->lib->status_order($value['status']) ?>"><?= $value['status'] ?></div></td>
-                                                        <td><a href="<?= base_url('order/detail_buyyer/').$value['order_id'] ?>"></a></td>
+                                                        <td><a href="<?= base_url('order/detail/').$value['order_id'] ?>"></a></td>
                                                     </tr>
                                                     <tr class="kk-order-mobile">
                                                         <td><span class="badge badge-info"><?= $value['order_id'] ?></span></td>
@@ -36,7 +36,7 @@
                                                             <div class="kk-order-date-time"><?= $this->lib->format_date($value['created_at']) ?> - <?= $this->lib->format_date($value['update_at']) ?></div>
                                                             <div class="kk-order-status-<?= $this->lib->status_order($value['status']) ?>"><?= $value['status'] ?></div>
                                                         </td>
-                                                        <td><a href="<?= base_url('order/detail_buyyer/').$value['order_id'] ?>"></a></td>
+                                                        <td><a href="<?= base_url('order/detail/').$value['order_id'] ?>"></a></td>
                                                     </tr>
                                                     <?php } } else { ?>
                     

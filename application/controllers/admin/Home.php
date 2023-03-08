@@ -9,8 +9,8 @@ class Home extends MY_Controller {
 	public function index() {
 		$widget = [
 			'user' => $this->user_model->get_rows(['select' => 'COUNT(user_id) AS total']),
-			'order' => $this->order_model->get_rows(['select' => 'SUM(grand_total) AS rupiah, COUNT(id) AS total', 'where' => [['status' => 'Transaksi Success']]]),
-			'fee' => $this->order_model->get_rows(['select' => 'SUM(fee) AS rupiah', 'where' => [['status' => 'Transaksi Success']]]),
+			'order' => $this->order_model->get_rows(['select' => 'SUM(grand_total) AS rupiah, COUNT(id) AS total', 'where' => [['order_by' => 'Penjual', 'status' => 'Transaksi Success']]]),
+			'fee' => $this->order_model->get_rows(['select' => 'SUM(fee) AS rupiah', 'where' => [['order_by' => 'Penjual', 'status' => 'Transaksi Success']]]),
 		];
 		$this->render_admin('admin/home/index', ['widget' => $widget]);
 	}

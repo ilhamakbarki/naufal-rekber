@@ -378,7 +378,7 @@ class Order extends MY_Controller {
 					'order_id' => $this->db->escape_str($this->input->post('order_id'))
 				];
 				$target = $this->order_model->get_row(['order_id' => $data_input['order_id']]);
-				$order = $this->join_order_model->get_row(['order_id' => $data_input['order_id'], 'order_by' => 'Pembeli']);
+				$order = $this->order_model->get_row(['order_id' => $data_input['order_id'], 'order_by' => 'Pembeli']);
 				$check_order = $this->order_model->get_row(['order_id' => $data_input['order_id'], 'status' => 'Cancel Transaksi']);
 				if ($this->order_model->get_row(['order_id' => $data_input['order_id']]) == false) {
 					$this->session->set_flashdata('result', array('alert' => 'danger', 'title' => 'Gagal!', 'msg' => 'Kode transaksi tidak terdaftar.'));
@@ -410,9 +410,7 @@ class Order extends MY_Controller {
     					'created_at' => date('Y-m-d H:i:s'),
     					'update_at' => date('Y-m-d H:i:s')
     				];
-    				var_dump($data_input);
-    				return;
-					$insert_order = $this->join_order_model->insert($data_input);
+					$insert_order = $this->order_model->insert($data_input);
 					if ($insert_order) {
             		    $this->order_model->update(['status' => 'Pending Pembayaran', 'update_at' => date('Y-m-d H:i:s')], ['order_id' => $target->order_id]);
     					$this->session->set_flashdata('result', array('alert' => 'success', 'title' => 'Berhasil!', 'msg' => 'Transaksi ditemukan.'));

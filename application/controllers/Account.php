@@ -68,18 +68,10 @@ class Account extends MY_Controller {
 	public function history() {
 		// SETTINGS //
 		$data_query = [
-			'select' => 'order.*',
-			'join' => [
-				[
-					'table' => 'join_order',
-					'on' => 'join_order.order_id = order.order_id',
-					'param' => 'inner'
-				]
-			],
-			'where' => [['order.user_id' => user()]],
-			'order_by' => 'order.id DESC',
+			'where' => [['user_id' => user()]],
+			'order_by' => 'id DESC',
 			'limit' => '10',
-			'offset' => ($this->uri->segment(4)) ? $this->uri->segment(4) : 0
+			'offset' => ($this->uri->segment(3)) ? $this->uri->segment(3) : 0
 		];
 		// END SETTINGS //
 		// PAGINATION //
