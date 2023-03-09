@@ -18,3 +18,10 @@ if (!function_exists('admin')) {
 		return $admin->$i;
 	}
 }
+
+if (!function_exists('dd')) {
+	function dd($param) {
+		print_r($param);
+		die;
+	}
+}
